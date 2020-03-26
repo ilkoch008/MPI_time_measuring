@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,-Bsymbolic-functions CMakeFiles/measuring_time.dir/main.c.o  -o measuring_time  /usr/lib/x86_64-linux-gnu/libmpich.so 

@@ -1,0 +1,3 @@
+/home/ilya/CLionProjects/measuring_time/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ilya/CLionProjects/measuring_time/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ilya/CLionProjects/measuring_time/cmake-build-debug/CMakeFiles/measuring_time.dir
