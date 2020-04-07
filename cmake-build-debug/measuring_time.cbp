@@ -8,38 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/ilya/CLionProjects/measuring_time/cmake-build-debug"/>
+				<Option working_dir="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/ilya/CLionProjects/measuring_time/cmake-build-debug"/>
+				<Option working_dir="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/ilya/CLionProjects/measuring_time/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="measuring_time">
-				<Option output="/home/ilya/CLionProjects/measuring_time/cmake-build-debug/measuring_time" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ilya/CLionProjects/measuring_time/cmake-build-debug"/>
+				<Option output="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/measuring_time" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -52,15 +42,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 measuring_time"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 measuring_time"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="measuring_time/fast">
-				<Option output="/home/ilya/CLionProjects/measuring_time/cmake-build-debug/measuring_time" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/ilya/CLionProjects/measuring_time/cmake-build-debug"/>
+				<Option output="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/measuring_time" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -73,17 +63,42 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 measuring_time/fast"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/measuring_time/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 measuring_time/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/ilya/CLionProjects/measuring_time/main.c">
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/lol.h">
 			<Option target="measuring_time"/>
 		</Unit>
-		<Unit filename="/home/ilya/CLionProjects/measuring_time/CMakeLists.txt">
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/main.c">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/misc_for_my_funcs.cpp">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/my_functions.c">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/run_MPI_functions.c">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

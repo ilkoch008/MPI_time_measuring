@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/ilya/CLionProjects/measuring_time/main.c" "/home/ilya/CLionProjects/measuring_time/cmake-build-debug/CMakeFiles/measuring_time.dir/main.c.o"
+  "/home/ilya/CLionProjects/MPI_time_measuring/main.c" "/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/measuring_time.dir/main.c.o"
+  "/home/ilya/CLionProjects/MPI_time_measuring/my_functions.c" "/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/measuring_time.dir/my_functions.c.o"
+  "/home/ilya/CLionProjects/MPI_time_measuring/run_MPI_functions.c" "/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/measuring_time.dir/run_MPI_functions.c.o"
+  "/home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c" "/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/measuring_time.dir/run_my_functions.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

@@ -6,17 +6,31 @@
 
 #IncludeRegexTransform: 
 
-/home/ilya/CLionProjects/measuring_time/main.c
+/home/ilya/CLionProjects/MPI_time_measuring/lol.h
 stdio.h
 -
-unistd.h
--
-mpi.h
-/home/ilya/CLionProjects/measuring_time/mpi.h
 stdlib.h
 -
-string.h
+limits.h
 -
+mpi.h
+/home/ilya/CLionProjects/MPI_time_measuring/mpi.h
+
+/home/ilya/CLionProjects/MPI_time_measuring/main.c
+lol.h
+/home/ilya/CLionProjects/MPI_time_measuring/lol.h
+
+/home/ilya/CLionProjects/MPI_time_measuring/my_functions.c
+lol.h
+/home/ilya/CLionProjects/MPI_time_measuring/lol.h
+
+/home/ilya/CLionProjects/MPI_time_measuring/run_MPI_functions.c
+lol.h
+/home/ilya/CLionProjects/MPI_time_measuring/lol.h
+
+/home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c
+lol.h
+/home/ilya/CLionProjects/MPI_time_measuring/lol.h
 
 /usr/include/mpich/mpi.h
 stddef.h

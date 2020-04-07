@@ -1,0 +1,38 @@
+The MPI test test_mpi for C in mode normal failed to compile with the following output:
+Change Dir: /home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4fbf6/fast && /usr/bin/make -f CMakeFiles/cmTC_4fbf6.dir/build.make CMakeFiles/cmTC_4fbf6.dir/build
+make[1]: Entering directory '/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4fbf6.dir/test_mpi.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_4fbf6.dir/test_mpi.c.o   -c /home/ilya/JetBrainsTools/apps/CLion/ch-0/193.6911.21/bin/cmake/linux/share/cmake-3.15/Modules/FindMPI/test_mpi.c
+/home/ilya/JetBrainsTools/apps/CLion/ch-0/193.6911.21/bin/cmake/linux/share/cmake-3.15/Modules/FindMPI/test_mpi.c:1:10: fatal error: mpi.h: No such file or directory
+ #include <mpi.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_4fbf6.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_4fbf6.dir/test_mpi.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_4fbf6.dir/test_mpi.c.o] Error 1
+make[1]: Leaving directory '/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_4fbf6/fast' failed
+make: *** [cmTC_4fbf6/fast] Error 2
+
+
+
+The MPI test test_mpi for C in mode normal failed to compile with the following output:
+Change Dir: /home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8a0b9/fast && /usr/bin/make -f CMakeFiles/cmTC_8a0b9.dir/build.make CMakeFiles/cmTC_8a0b9.dir/build
+make[1]: Entering directory '/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a0b9.dir/test_mpi.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_8a0b9.dir/test_mpi.c.o   -c /home/ilya/JetBrainsTools/apps/CLion/ch-0/193.6911.21/bin/cmake/linux/share/cmake-3.15/Modules/FindMPI/test_mpi.c
+/home/ilya/JetBrainsTools/apps/CLion/ch-0/193.6911.21/bin/cmake/linux/share/cmake-3.15/Modules/FindMPI/test_mpi.c:1:10: fatal error: mpi.h: No such file or directory
+ #include <mpi.h>
+          ^~~~~~~
+compilation terminated.
+CMakeFiles/cmTC_8a0b9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_8a0b9.dir/test_mpi.c.o' failed
+make[1]: *** [CMakeFiles/cmTC_8a0b9.dir/test_mpi.c.o] Error 1
+make[1]: Leaving directory '/home/ilya/CLionProjects/MPI_time_measuring/cmake-build-debug/CMakeFiles/CMakeTmp'
+Makefile:121: recipe for target 'cmTC_8a0b9/fast' failed
+make: *** [cmTC_8a0b9/fast] Error 2
+
+
+
