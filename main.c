@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include "mpi.h"
-#include <stdlib.h>
+
+#include "lol.h"
+
 
 int main(int argc, char **argv) {
     MPI_Init(&argc, &argv);
@@ -13,11 +13,9 @@ int main(int argc, char **argv) {
     int *recvBuff;
 
     int numOfProcs, myRank, namelen;
-    double accuracy;
     MPI_Status status;
     MPI_Comm_size(MPI_COMM_WORLD, &size);
     char processor_name[MPI_MAX_PROCESSOR_NAME];
-    accuracy = MPI_Wtick();
 
     MPI_Comm_size(MPI_COMM_WORLD, &numOfProcs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
@@ -43,175 +41,27 @@ int main(int argc, char **argv) {
 
     sendBuff = (int *) malloc(sizeof(int) * length);
     recvBuff = (int *) malloc(sizeof(int) * length);
-    int * scatterSendBuff;
+    int *scatterSendBuff;
     scatterSendBuff = (int *) malloc(sizeof(int) * length * numOfProcs);
 
 //    printf("My rank is %d and i'm going to receive %d ints\n", myRank, length);
 
-    double sum, it, sumForRoot;
-    double average, averageForRoot;
-    if(myRank == 0) {
-        printf("--------------------------------------------------------------------------------------------\n");
+    if (myRank == 0) {
+        printf("============================================================================================\n");
     }
 
-//----------------------------------------------------------------------------------------------------------------------
-
-    it = 0;
-    sum = 0;
-    sumForRoot = 0;
-
-    while (1) {
-        if (it == iterations)
-            break;
-        dtime = MPI_Wtime();
-        MPI_Bcast(sendBuff, length, MPI_INT, 0, MPI_COMM_WORLD);
-        dtime = MPI_Wtime() - dtime;
-        //printf("iteration %d; my rank: %d\n", it, myRank);
-        if(myRank == 0){
-            sumForRoot += dtime;
-        } else {
-            sum += dtime;
-        }
-        MPI_Barrier(MPI_COMM_WORLD);
-        it++;
-    }
+    run_MPI_fun(length, iterations, sendBuff, recvBuff, scatterSendBuff);
 
     if (myRank == 0) {
-        for (int i = 1; i < numOfProcs; i++) {
-            MPI_Recv(&dtime, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            sum += dtime;
-        }
-        averageForRoot = sumForRoot / iterations;
-        average = sum / (iterations * (numOfProcs - 1));
-        printf("Average time of MPI_Bcast for not root: %f\n", average);
-        printf("Average time of MPI_Bcast for root:     %f\n", averageForRoot);
-        printf("--------------------------------------------------------------------------------------------\n");
-    } else {
-        MPI_Send(&sum, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
+        printf("============================================================================================\n");
     }
 
-    MPI_Barrier(MPI_COMM_WORLD);
-
-
-//----------------------------------------------------------------------------------------------------------------------
-
-    it = 0;
-    sum = 0;
-    sumForRoot = 0;
-
-    while (1) {
-        if (it == iterations)
-            break;
-        dtime = MPI_Wtime();
-        MPI_Reduce(sendBuff, recvBuff, length, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
-        dtime = MPI_Wtime() - dtime;
-        //printf("iteration %d; my rank: %d\n", it, myRank);
-        if(myRank == 0){
-            sumForRoot += dtime;
-        } else {
-            sum += dtime;
-        }
-        MPI_Barrier(MPI_COMM_WORLD);
-        it++;
-    }
-
-    //printf("%d ended\n", myRank);
-
-    sum += dtime;
-    if (myRank == 0) {
-        for (int i = 1; i < numOfProcs; i++) {
-            MPI_Recv(&dtime, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            sum += dtime;
-        }
-        averageForRoot = sumForRoot / iterations;
-        average = sum / (iterations * (numOfProcs - 1));
-        printf("Average time of MPI_Reduce for MPI_SUM for not root: %f\n", average);
-        printf("Average time of MPI_Reduce for MPI_SUM for root:     %f\n", averageForRoot);
-        printf("--------------------------------------------------------------------------------------------\n");
-    } else {
-        MPI_Send(&sum, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-
-    it = 0;
-    sum = 0;
-    sumForRoot = 0;
-
-    while (1) {
-        if (it == iterations)
-            break;
-        dtime = MPI_Wtime();
-        MPI_Scatter(scatterSendBuff, length, MPI_INT, recvBuff, length, MPI_INT, 0, MPI_COMM_WORLD);
-        dtime = MPI_Wtime() - dtime;
-        //printf("iteration %d; my rank: %d\n", it, myRank);
-        if(myRank == 0){
-            sumForRoot += dtime;
-        } else {
-            sum += dtime;
-        }
-        MPI_Barrier(MPI_COMM_WORLD);
-        it++;
-    }
-
-    sum += dtime;
-    if (myRank == 0) {
-        for (int i = 1; i < numOfProcs; i++) {
-            MPI_Recv(&dtime, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            sum += dtime;
-        }
-        averageForRoot = sumForRoot / iterations;
-        average = sum / (iterations * (numOfProcs - 1));
-        printf("Average time of MPI_Scatter for not root: %f\n", average);
-        printf("Average time of MPI_Scatter for root:     %f\n", averageForRoot);
-        printf("--------------------------------------------------------------------------------------------\n");
-    } else {
-        MPI_Send(&sum, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-
-    it = 0;
-    sum = 0;
-    sumForRoot = 0;
-
-    while (1) {
-        if (it == iterations)
-            break;
-        dtime = MPI_Wtime();
-        MPI_Gather(recvBuff, length, MPI_INT, scatterSendBuff, length, MPI_INT, 0, MPI_COMM_WORLD);
-        dtime = MPI_Wtime() - dtime;
-        //printf("iteration %d; my rank: %d\n", it, myRank);
-        if(myRank == 0){
-            sumForRoot += dtime;
-        } else {
-            sum += dtime;
-        }
-        MPI_Barrier(MPI_COMM_WORLD);
-        it++;
-    }
-
-    sum += dtime;
-    if (myRank == 0) {
-        for (int i = 1; i < numOfProcs; i++) {
-            MPI_Recv(&dtime, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            sum += dtime;
-        }
-        averageForRoot = sumForRoot / iterations;
-        average = sum / (iterations * (numOfProcs - 1));
-        printf("Average time of MPI_Gather for not root: %f\n", average);
-        printf("Average time of MPI_Gather for root:     %f\n", averageForRoot);
-        printf("--------------------------------------------------------------------------------------------\n");
-    } else {
-        MPI_Send(&sum, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
-    }
-
-//----------------------------------------------------------------------------------------------------------------------
-
+    run_my_fun(length, iterations, sendBuff, recvBuff, scatterSendBuff);
 
     MPI_Barrier(MPI_COMM_WORLD);
     free(recvBuff);
     free(sendBuff);
+    free(scatterSendBuff);
     MPI_Finalize();
     return 0;
 }
