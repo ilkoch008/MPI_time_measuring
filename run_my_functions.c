@@ -13,8 +13,8 @@ int run_my_fun(int length, int iterations, int *sendBuff, int *recvBuff, int *sc
 
     MPI_Comm_size(MPI_COMM_WORLD, &numOfProcs);
     MPI_Comm_rank(MPI_COMM_WORLD, &myRank);
-
-    double sum, it, sumForRoot;
+    int it;
+    double sum, sumForRoot;
     double average, averageForRoot;
 
     //----------------------------------------------------------------------------------------------------------------------
@@ -67,7 +67,6 @@ int run_my_fun(int length, int iterations, int *sendBuff, int *recvBuff, int *sc
         dtime = MPI_Wtime();
         my_Reduce(sendBuff, recvBuff, length, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
         dtime = MPI_Wtime() - dtime;
-        //printf("iteration %d; my rank: %d\n", it, myRank);
         if (myRank == 0) {
             sumForRoot += dtime;
         } else {
@@ -75,8 +74,6 @@ int run_my_fun(int length, int iterations, int *sendBuff, int *recvBuff, int *sc
         }
         it++;
     }
-
-    //printf("%d ended\n", myRank);
 
     if (myRank == 0) {
         for (int i = 1; i < numOfProcs; i++) {
@@ -143,8 +140,6 @@ int run_my_fun(int length, int iterations, int *sendBuff, int *recvBuff, int *sc
         dtime = MPI_Wtime();
         my_Gather(recvBuff, length, MPI_INT, scatterSendBuff, length, MPI_INT, 0, MPI_COMM_WORLD);
         dtime = MPI_Wtime() - dtime;
-        //printf("myRank = %d, dtime = %f\n", myRank, dtime);
-        //printf("iteration %d; my rank: %d\n", it, myRank);
         if (myRank == 0) {
             sumForRoot += dtime;
         } else {

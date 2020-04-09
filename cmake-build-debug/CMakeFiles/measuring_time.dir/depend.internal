@@ -7,6 +7,12 @@ CMakeFiles/measuring_time.dir/main.c.o
  /usr/include/mpich/mpi.h
  /usr/include/mpich/mpicxx.h
  /usr/include/mpich/mpio.h
+CMakeFiles/measuring_time.dir/misc_for_my_funcs.c.o
+ /home/ilya/CLionProjects/MPI_time_measuring/lol.h
+ /home/ilya/CLionProjects/MPI_time_measuring/misc_for_my_funcs.c
+ /usr/include/mpich/mpi.h
+ /usr/include/mpich/mpicxx.h
+ /usr/include/mpich/mpio.h
 CMakeFiles/measuring_time.dir/my_functions.c.o
  /home/ilya/CLionProjects/MPI_time_measuring/lol.h
  /home/ilya/CLionProjects/MPI_time_measuring/my_functions.c
@@ -22,6 +28,12 @@ CMakeFiles/measuring_time.dir/run_MPI_functions.c.o
 CMakeFiles/measuring_time.dir/run_my_functions.c.o
  /home/ilya/CLionProjects/MPI_time_measuring/lol.h
  /home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c
+ /usr/include/mpich/mpi.h
+ /usr/include/mpich/mpicxx.h
+ /usr/include/mpich/mpio.h
+CMakeFiles/measuring_time.dir/test_my_functions.c.o
+ /home/ilya/CLionProjects/MPI_time_measuring/lol.h
+ /home/ilya/CLionProjects/MPI_time_measuring/test_my_functions.c
  /usr/include/mpich/mpi.h
  /usr/include/mpich/mpicxx.h
  /usr/include/mpich/mpio.h

@@ -23,6 +23,51 @@ int main(int argc, char **argv) {
 
     dtime = MPI_Wtime() - dtime;
     int iterations;
+    int answer = 0;
+    int res = 0;
+
+    if (myRank == 0) {
+        while (1) {
+            printf("Run in test mode? [y/n]\n");
+            res = scanf("%lc", &answer);
+            if(res != 0 && (answer == 'y' || answer == 'n')){
+                break;
+            }
+        }
+        MPI_Bcast(&answer, 1, MPI_CHAR, 0, MPI_COMM_WORLD);
+    } else {
+        MPI_Bcast(&answer, 1, MPI_CHAR, 0, MPI_COMM_WORLD);
+    }
+
+    if(myRank == 0){
+        printf("========================================================================================\n");
+    }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    if(answer == 'y'){
+        test_my_functions(MY_BROADCAST);
+        if(myRank == 0){
+            printf("========================================================================================\n");
+        }
+        MPI_Barrier(MPI_COMM_WORLD);
+        test_my_functions(MY_GATHER);
+        if(myRank == 0){
+            printf("========================================================================================\n");
+        }
+        MPI_Barrier(MPI_COMM_WORLD);
+        test_my_functions(MY_SCATTER);
+        if(myRank == 0){
+            printf("========================================================================================\n");
+        }
+        MPI_Barrier(MPI_COMM_WORLD);
+        test_my_functions(MY_REDUCE);
+        if(myRank == 0){
+            printf("========================================================================================\n");
+        }
+        MPI_Finalize();
+        return 0;
+    }
 
     if (myRank == 0) {
         printf("Enter number of elements in sendBuff to operate\n");
@@ -55,6 +100,8 @@ int main(int argc, char **argv) {
     if (myRank == 0) {
         printf("============================================================================================\n");
     }
+
+    MPI_Barrier(MPI_COMM_WORLD);
 
     run_my_fun(length, iterations, sendBuff, recvBuff, scatterSendBuff);
 

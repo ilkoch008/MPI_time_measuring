@@ -162,7 +162,7 @@ int run_MPI_fun(int length, int iterations, int *sendBuff, int *recvBuff, int *s
         average = sum / (iterations * (numOfProcs - 1));
         printf("Average time of MPI_Gather for not root: %f\n", average);
         printf("Average time of MPI_Gather for root:     %f\n", averageForRoot);
-        printf("--------------------------------------------------------------------------------------------\n");
+//        printf("--------------------------------------------------------------------------------------------\n");
     } else {
         MPI_Send(&sum, 1, MPI_DOUBLE, 0, 0, MPI_COMM_WORLD);
     }

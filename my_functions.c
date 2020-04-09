@@ -26,23 +26,34 @@ int my_Scatter(void *sbuf, int scount, MPI_Datatype stype, void *rbuf, int rcoun
                MPI_Comm comm) {
     int numOfProcs, myRank;
     MPI_Status status;
+    MPI_Request request;
     MPI_Comm_size(comm, &numOfProcs);
     MPI_Comm_rank(comm, &myRank);
-
     if (myRank == root) {
         for (int i = 0; i < numOfProcs; i++) {
+//            printf("sbuf: ");
+//            for(int j = 0; j < scount; j++){
+//                printf("%d ", *(int*)(sbuf + j*size_of(stype)));
+//            }
+//            printf("\n");
             if (i != root) {
                 MPI_Send(sbuf, scount, stype, i, MY_SCATTER, comm);
             } else {
-                MPI_Send(sbuf, scount, stype, i, MY_SCATTER, comm);
+                MPI_Isend(sbuf, scount, stype, root, MY_SCATTER, comm, &request);
                 MPI_Recv(rbuf, rcount, rtype, root, MY_SCATTER, comm, &status);
             }
-            sbuf += scount;
+            sbuf += scount * size_of(stype);
+//            sleep(1);
         }
     } else {
         MPI_Recv(rbuf, rcount, rtype, root, MY_SCATTER, comm, &status);
-    }
+//        printf("myRank = %d; rbuf: ", myRank);
+//        for(int j = 0; j < scount; j++){
+//            printf("%d ", *(int*)(rbuf + j*size_of(stype)));
+//        }
+//        printf("\n");
 
+    }
     return 0;
 }
 
@@ -50,6 +61,7 @@ int my_Gather(void *sbuf, int scount, MPI_Datatype stype, void *rbuf, int rcount
               MPI_Comm comm) {
     int numOfProcs, myRank;
     MPI_Status status;
+    MPI_Request request;
     MPI_Comm_size(comm, &numOfProcs);
     MPI_Comm_rank(comm, &myRank);
 
@@ -57,8 +69,11 @@ int my_Gather(void *sbuf, int scount, MPI_Datatype stype, void *rbuf, int rcount
         for (int i = 0; i < numOfProcs; i++) {
             if (i != root) {
                 MPI_Recv(rbuf, rcount, rtype, i, MY_GATHER, comm, &status);
-            } else { rbuf = sbuf; }
-            rbuf += rcount;
+            } else {
+                MPI_Isend(sbuf, scount, stype, root, MY_GATHER, comm, &request);
+                MPI_Recv(rbuf, rcount, rtype, root, MY_GATHER, comm, &status);
+            }
+            rbuf += rcount * size_of(rtype);
         }
     } else {
         MPI_Send(sbuf, scount, stype, root, MY_GATHER, comm);
@@ -70,6 +85,7 @@ int my_Gather(void *sbuf, int scount, MPI_Datatype stype, void *rbuf, int rcount
 int my_Reduce(void *sendbuf, void *recvbuf, int count, MPI_Datatype type, MPI_Op op, int root,
               MPI_Comm comm) { //Only for int
     int numOfProcs, myRank;
+    int * previous = malloc(count * size_of(type));
     MPI_Status status;
     MPI_Comm_size(comm, &numOfProcs);
     MPI_Comm_rank(comm, &myRank);
@@ -78,74 +94,70 @@ int my_Reduce(void *sendbuf, void *recvbuf, int count, MPI_Datatype type, MPI_Op
         exit(0);
     }
     if (myRank == root) {
-        int **inter_buff = malloc(numOfProcs * sizeof(int *));
-
         for (int i = 0; i < numOfProcs; i++) {
-            inter_buff[i] = malloc(count * sizeof(int));
             if (i != root) {
-                MPI_Recv(inter_buff[i], count, type, i, MY_REDUCE, comm, &status);
-            } else { inter_buff[i] = sendbuf; }
+                MPI_Recv(sendbuf, count, type, i, MY_REDUCE, comm, &status);
+            }
+//            for(int j = 0; j < count; j++){
+//                printf("%d ", *(int*)(sendbuf+j*size_of(type)));
+//            }
+//            printf("\n");
+            switch (op) {
+                case MPI_MAX:
+                    find_MAX(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_MIN:
+                    find_MIN(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_SUM:
+                    find_SUM(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_PROD:
+                    find_PROD(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_LAND:
+                    find_LAND(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_BAND:
+                    find_BAND(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_LOR:
+                    find_LOR(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_BOR:
+                    find_BOR(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_LXOR:
+                    find_LXOR(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_BXOR:
+                    find_BXOR(count, i, sendbuf, recvbuf);
+                    break;
+
+                case MPI_MAXLOC:
+                    find_MAXLOC(count, i, sendbuf, recvbuf, previous);
+                    break;
+
+                case MPI_MINLOC:
+                    find_MINLOC(count, i, sendbuf, recvbuf, previous);
+                    break;
+                default:
+                    fprintf(stderr, "my_Reduce: No such command\n");
+                    break;
+            }
         }
-
-        switch (op) {
-            case MPI_MAX:
-                find_MAX(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_MIN:
-                find_MIN(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_SUM:
-                find_SUM(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_PROD:
-                find_PROD(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_LAND:
-                find_LAND(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_BAND:
-                find_BAND(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_LOR:
-                find_LOR(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_BOR:
-                find_BOR(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_LXOR:
-                find_LXOR(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_BXOR:
-                find_BXOR(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_MAXLOC:
-                find_MAXLOC(inter_buff, numOfProcs, count, recvbuf);
-                break;
-
-            case MPI_MINLOC:
-                find_MINLOC(inter_buff, numOfProcs, count, recvbuf);
-                break;
-            default:
-                fprintf(stderr, "my_Reduce: No such command\n");
-                break;
-        }
-
-        for (int i = 0; i < numOfProcs; i++) {
-            free(inter_buff[i]);
-        }
-
     } else {
         MPI_Send(sendbuf, count, type, root, MY_REDUCE, comm);
     }
+    free(previous);
     return 0;
 }

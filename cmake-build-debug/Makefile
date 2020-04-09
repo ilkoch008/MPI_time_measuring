@@ -150,6 +150,33 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/main.c.s
 .PHONY : main.c.s
 
+misc_for_my_funcs.o: misc_for_my_funcs.c.o
+
+.PHONY : misc_for_my_funcs.o
+
+# target to build an object file
+misc_for_my_funcs.c.o:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/misc_for_my_funcs.c.o
+.PHONY : misc_for_my_funcs.c.o
+
+misc_for_my_funcs.i: misc_for_my_funcs.c.i
+
+.PHONY : misc_for_my_funcs.i
+
+# target to preprocess a source file
+misc_for_my_funcs.c.i:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/misc_for_my_funcs.c.i
+.PHONY : misc_for_my_funcs.c.i
+
+misc_for_my_funcs.s: misc_for_my_funcs.c.s
+
+.PHONY : misc_for_my_funcs.s
+
+# target to generate assembly for a file
+misc_for_my_funcs.c.s:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/misc_for_my_funcs.c.s
+.PHONY : misc_for_my_funcs.c.s
+
 my_functions.o: my_functions.c.o
 
 .PHONY : my_functions.o
@@ -231,6 +258,33 @@ run_my_functions.c.s:
 	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/run_my_functions.c.s
 .PHONY : run_my_functions.c.s
 
+test_my_functions.o: test_my_functions.c.o
+
+.PHONY : test_my_functions.o
+
+# target to build an object file
+test_my_functions.c.o:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/test_my_functions.c.o
+.PHONY : test_my_functions.c.o
+
+test_my_functions.i: test_my_functions.c.i
+
+.PHONY : test_my_functions.i
+
+# target to preprocess a source file
+test_my_functions.c.i:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/test_my_functions.c.i
+.PHONY : test_my_functions.c.i
+
+test_my_functions.s: test_my_functions.c.s
+
+.PHONY : test_my_functions.s
+
+# target to generate assembly for a file
+test_my_functions.c.s:
+	$(MAKE) -f CMakeFiles/measuring_time.dir/build.make CMakeFiles/measuring_time.dir/test_my_functions.c.s
+.PHONY : test_my_functions.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -243,6 +297,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... misc_for_my_funcs.o"
+	@echo "... misc_for_my_funcs.i"
+	@echo "... misc_for_my_funcs.s"
 	@echo "... my_functions.o"
 	@echo "... my_functions.i"
 	@echo "... my_functions.s"
@@ -252,6 +309,9 @@ help:
 	@echo "... run_my_functions.o"
 	@echo "... run_my_functions.i"
 	@echo "... run_my_functions.s"
+	@echo "... test_my_functions.o"
+	@echo "... test_my_functions.i"
+	@echo "... test_my_functions.s"
 .PHONY : help
 
 

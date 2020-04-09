@@ -86,7 +86,7 @@
 		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/main.c">
 			<Option target="measuring_time"/>
 		</Unit>
-		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/misc_for_my_funcs.cpp">
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/misc_for_my_funcs.c">
 			<Option target="measuring_time"/>
 		</Unit>
 		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/my_functions.c">
@@ -96,6 +96,9 @@
 			<Option target="measuring_time"/>
 		</Unit>
 		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c">
+			<Option target="measuring_time"/>
+		</Unit>
+		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/test_my_functions.c">
 			<Option target="measuring_time"/>
 		</Unit>
 		<Unit filename="/home/ilya/CLionProjects/MPI_time_measuring/CMakeLists.txt">

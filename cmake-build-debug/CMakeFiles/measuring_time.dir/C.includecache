@@ -9,26 +9,18 @@
 /home/ilya/CLionProjects/MPI_time_measuring/lol.h
 stdio.h
 -
+unistd.h
+-
 stdlib.h
 -
 limits.h
 -
 mpi.h
 /home/ilya/CLionProjects/MPI_time_measuring/mpi.h
+string.h
+-
 
-/home/ilya/CLionProjects/MPI_time_measuring/main.c
-lol.h
-/home/ilya/CLionProjects/MPI_time_measuring/lol.h
-
-/home/ilya/CLionProjects/MPI_time_measuring/my_functions.c
-lol.h
-/home/ilya/CLionProjects/MPI_time_measuring/lol.h
-
-/home/ilya/CLionProjects/MPI_time_measuring/run_MPI_functions.c
-lol.h
-/home/ilya/CLionProjects/MPI_time_measuring/lol.h
-
-/home/ilya/CLionProjects/MPI_time_measuring/run_my_functions.c
+/home/ilya/CLionProjects/MPI_time_measuring/misc_for_my_funcs.c
 lol.h
 /home/ilya/CLionProjects/MPI_time_measuring/lol.h
 
